@@ -27,7 +27,8 @@ export default {
         '\u00A0\u00A0<em>cat about</em> - shows about information.',
         '\u00A0\u00A0<em>cat contact</em> - shows contact information.',
         '\u00A0\u00A0<em>ls projects</em> - lists projects.',
-        '\u00A0\u00A0<em>clear</em> - clears terminal and shows this manual.'
+        '\u00A0\u00A0<em>clear</em> - clears terminal and shows this manual.',
+        '<em><strong>Note:</strong> Work in Progress, some commands may not be implemented yet (2023/01/07)</em>'
       ]
     }
   },
@@ -47,11 +48,11 @@ export default {
           this.messages.push(`Command not found: ${message}`)
         }
       }
-      window.scrollTo(0,0);
+      window.scrollTo(0, 0);
     }
   },
   mounted: function () {
-    this.$data.messages = Array.from(this.$data.introMessages); 
+    this.$data.messages = Array.from(this.$data.introMessages);
   }
 }
 
@@ -73,17 +74,20 @@ body {
   height: 100vh;
   font-family: monospace;
 }
+
 .footer {
   position: fixed;
   bottom: 0;
   width: 750px;
 }
+
 .name-title {
   position: fixed;
   top: 30px;
   font-size: 2.5rem;
   font-family: monospace;
 }
+
 .description {
   position: fixed;
   top: 90px;
@@ -97,27 +101,34 @@ body {
   * {
     font-size: 18px;
   }
+
   #app {
     justify-content: flex-start;
   }
+
   .terminal {
     max-width: 90%;
     max-height: 70%;
   }
+
   .terminal-bar {
     max-width: 90%;
     margin-top: 10%;
   }
+
   .bar-info p {
     font-size: 10px;
   }
+
   .name-title,
   .description {
     display: none;
   }
+
   .footer {
     max-width: 90%;
   }
+
   .footer a {
     font-size: 12px;
   }
