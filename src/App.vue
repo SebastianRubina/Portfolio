@@ -1,26 +1,82 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <h1 class="name-title">Sebastian Rubina</h1>
+  <TerminalBar />
+  <MainTerminal :messages="this.messages" @update-messages="updateMessages" />
+  <FooterElement class="footer" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MainTerminal from './components/MainTerminal.vue'
+import TerminalBar from './components/TerminalBar.vue'
+import FooterElement from './components/FooterElement.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    MainTerminal,
+    TerminalBar,
+    FooterElement
+  },
+  data() {
+    return {
+      messages: [''],
+      introMessages: [
+        'Welcome to my portfolio :)',
+        'The commands available are:',
+        '\u00A0\u00A0cat about - shows about information.',
+        '\u00A0\u00A0cat contact - shows contact information.',
+        '\u00A0\u00A0ls projects - lists projects.',
+        '\u00A0\u00A0clear - clears terminal and shows this manual.'
+      ]
+    }
+  },
+  methods: {
+    updateMessages(message) {
+      this.messages.push("> " + message);
+      if (message.toLowerCase() === "clear") {
+        this.$data.messages = Array.from(this.$data.introMessages);
+      } else if (message.toLowerCase() == "cat about") {
+        // temp
+      } else if (message.toLowerCase() == "cat contact") {
+        // temp / maybe send an email? accept an email address as a parameter
+      } else if (message.toLowerCase() == "ls projects") {
+        // temp
+      } else {
+        this.messages.push(`Command not found: ${message}`)
+      }
+    }
+  },
+  mounted: function () {
+    this.$data.messages = Array.from(this.$data.introMessages);
   }
 }
+
+
 </script>
 
 <style>
+body {
+  background-color: #88AED0;
+  /* #f6f6f6; */
+  font-size: 0.9rem;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  font-family: monospace;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 750px;
+}
+.name-title {
+  position: fixed;
+  top: 30px;
+  font-size: 2.5rem;
 }
 </style>
