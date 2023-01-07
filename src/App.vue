@@ -44,13 +44,11 @@ export default {
       } else {
         this.messages.push(`Command not found: ${message}`)
       }
+      window.scrollTo(0,0);
     }
   },
   mounted: function () {
-    this.$data.messages = Array.from(this.$data.introMessages);
-    setInterval(function(){
-      window.scrollTo(0,0);
-    }, 2000);  
+    this.$data.messages = Array.from(this.$data.introMessages); 
   }
 }
 
