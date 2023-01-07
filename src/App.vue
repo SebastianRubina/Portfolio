@@ -25,7 +25,7 @@ export default {
         'Welcome to my portfolio :)',
         'The commands available are:',
         '\u00A0\u00A0<em>cat about</em> - shows about information.',
-        '\u00A0\u00A0<em>cat contact</em> - shows contact information.',
+        '\u00A0\u00A0<em>cat contact</em> - shows <a href="#" style="color:#88AED0;font-weight:bold;">contact</a> information.',
         '\u00A0\u00A0<em>ls projects</em> - lists projects.',
         '\u00A0\u00A0<em>clear</em> - clears terminal and shows this manual.',
         '<em><strong>Note:</strong> Work in Progress, some commands may not be implemented yet (2023/01/07)</em>'

@@ -1,7 +1,7 @@
 <template>
     <div class="terminal" ref="terminal">
       <TerminalText v-for="message in this.messages" :msg="message" :key="message" />
-      <focus-trap :initial-focus="() => $refs.input" :allow-outside-click="(e) => (e.target.tagName === 'A')">
+      <focus-trap :initial-focus="() => $refs.input" :active="this.screenWidth > 800" :allow-outside-click="(e) => (e.target.tagName === 'A')">
         <form @submit.prevent="updateMessages(inputValue)">
           <p>>&nbsp;</p><input type="text" class="terminal-input" v-model="inputValue" ref="input" autofocus>
         </form>
@@ -21,6 +21,7 @@ export default {
   data() {
     return {
       inputValue: "",
+      screenWidth: 0
     }
   },
   props: {
@@ -46,7 +47,14 @@ export default {
     focusInput: async function () {
       await nextTick()
       this.$refs.input.focus();
+    },
+    getScreenWidth() {
+      this.screenWidth = window.innerWidth;
+      console.log(this.screenWidth);
     }
+  },
+  mounted: function() {
+    this.getScreenWidth();
   }
 }
 </script>
