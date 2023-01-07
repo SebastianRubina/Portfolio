@@ -1,5 +1,6 @@
 <template>
   <h1 class="name-title">Sebastian Rubina</h1>
+  <h2 class="description">Full Stack Developer</h2>
   <TerminalBar class="terminal-bar" />
   <MainTerminal :messages="this.messages" @update-messages="updateMessages" />
   <FooterElement class="footer" />
@@ -83,6 +84,14 @@ body {
   font-size: 2.5rem;
   font-family: monospace;
 }
+.description {
+  position: fixed;
+  top: 90px;
+  margin-block: 1rem;
+  font-family: monospace;
+  font-size: 1.5rem;
+  padding: 0;
+}
 
 @media screen and (max-width: 800px) {
   * {
@@ -102,7 +111,8 @@ body {
   .bar-info p {
     font-size: 10px;
   }
-  .name-title {
+  .name-title,
+  .description {
     display: none;
   }
   .footer {
