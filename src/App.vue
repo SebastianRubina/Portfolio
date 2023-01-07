@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     updateMessages(message) {
-        if (message) {
+      if (message) {
         this.messages.push("> " + message);
         if (message.toLowerCase() === "clear") {
           this.$data.messages = Array.from(this.$data.introMessages);
@@ -45,8 +45,8 @@ export default {
         } else {
           this.messages.push(`Command not found: ${message}`)
         }
-        window.scrollTo(0,0);
       }
+      window.scrollTo(0,0);
     }
   },
   mounted: function () {
