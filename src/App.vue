@@ -48,6 +48,9 @@ export default {
   },
   mounted: function () {
     this.$data.messages = Array.from(this.$data.introMessages);
+    setInterval(function(){
+      window.scrollTo(0,0);
+    }, 2000);  
   }
 }
 
