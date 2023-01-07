@@ -23,28 +23,30 @@ export default {
       introMessages: [
         'Welcome to my portfolio :)',
         'The commands available are:',
-        '\u00A0\u00A0cat about - shows about information.',
-        '\u00A0\u00A0cat contact - shows contact information.',
-        '\u00A0\u00A0ls projects - lists projects.',
-        '\u00A0\u00A0clear - clears terminal and shows this manual.'
+        '\u00A0\u00A0<em>cat about</em> - shows about information.',
+        '\u00A0\u00A0<em>cat contact</em> - shows contact information.',
+        '\u00A0\u00A0<em>ls projects</em> - lists projects.',
+        '\u00A0\u00A0<em>clear</em> - clears terminal and shows this manual.'
       ]
     }
   },
   methods: {
     updateMessages(message) {
-      this.messages.push("> " + message);
-      if (message.toLowerCase() === "clear") {
-        this.$data.messages = Array.from(this.$data.introMessages);
-      } else if (message.toLowerCase() == "cat about") {
-        // temp
-      } else if (message.toLowerCase() == "cat contact") {
-        // temp / maybe send an email? accept an email address as a parameter
-      } else if (message.toLowerCase() == "ls projects") {
-        // temp
-      } else {
-        this.messages.push(`Command not found: ${message}`)
+        if (message) {
+        this.messages.push("> " + message);
+        if (message.toLowerCase() === "clear") {
+          this.$data.messages = Array.from(this.$data.introMessages);
+        } else if (message.toLowerCase() == "cat about") {
+          // temp
+        } else if (message.toLowerCase() == "cat contact") {
+          // temp / maybe send an email? accept an email address as a parameter
+        } else if (message.toLowerCase() == "ls projects") {
+          // temp
+        } else {
+          this.messages.push(`Command not found: ${message}`)
+        }
+        window.scrollTo(0,0);
       }
-      window.scrollTo(0,0);
     }
   },
   mounted: function () {

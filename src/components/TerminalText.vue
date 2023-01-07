@@ -1,6 +1,6 @@
 <template>
   <div class="terminal-text">
-    <p>{{ msg }}</p>
+    <p v-html="msg"></p>
   </div>
 </template>
 
