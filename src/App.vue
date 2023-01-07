@@ -85,11 +85,16 @@ body {
   * {
     font-size: 18px;
   }
+  #app {
+    justify-content: flex-start;
+  }
   .terminal {
     max-width: 90%;
+    max-height: 70%;
   }
   .terminal-bar {
     max-width: 90%;
+    margin-top: 10%;
   }
   .bar-info p {
     font-size: 10px;
