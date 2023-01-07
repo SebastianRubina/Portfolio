@@ -39,11 +39,11 @@ export default {
         if (message.toLowerCase() === "clear") {
           this.$data.messages = Array.from(this.$data.introMessages);
         } else if (message.toLowerCase() == "cat about") {
-          // temp
+          this.messages.push("Command yet to be implemented: " + message);
         } else if (message.toLowerCase() == "cat contact") {
-          // temp / maybe send an email? accept an email address as a parameter
+          this.messages.push("Command yet to be implemented: " + message); // maybe send an email? accept an email address as a parameter
         } else if (message.toLowerCase() == "ls projects") {
-          // temp
+          this.messages.push("Command yet to be implemented: " + message);
         } else {
           this.messages.push(`Command not found: ${message}`)
         }
