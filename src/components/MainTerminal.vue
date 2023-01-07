@@ -73,6 +73,7 @@ export default {
   color: white;
   font-family: monospace;
   font-size: 0.9rem;
+  caret-color: white;
 }
 
 .terminal-input:focus {
