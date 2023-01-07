@@ -1,6 +1,6 @@
 <template>
   <h1 class="name-title">Sebastian Rubina</h1>
-  <TerminalBar />
+  <TerminalBar class="terminal-bar" />
   <MainTerminal :messages="this.messages" @update-messages="updateMessages" />
   <FooterElement class="footer" />
 </template>
@@ -78,5 +78,30 @@ body {
   position: fixed;
   top: 30px;
   font-size: 2.5rem;
+  font-family: monospace;
+}
+
+@media screen and (max-width: 800px) {
+  * {
+    font-size: 18px;
+  }
+  .terminal {
+    max-width: 90%;
+  }
+  .terminal-bar {
+    max-width: 90%;
+  }
+  .bar-info p {
+    font-size: 10px;
+  }
+  .name-title {
+    display: none;
+  }
+  .footer {
+    max-width: 90%;
+  }
+  .footer a {
+    font-size: 12px;
+  }
 }
 </style>
