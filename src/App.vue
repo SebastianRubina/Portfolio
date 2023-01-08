@@ -10,6 +10,7 @@
 import MainTerminal from './components/MainTerminal.vue'
 import TerminalBar from './components/TerminalBar.vue'
 import FooterElement from './components/FooterElement.vue'
+import projectsJson from '@/data/projects.json'
 
 export default {
   name: 'App',
@@ -21,14 +22,14 @@ export default {
   data() {
     return {
       messages: [''],
+      projects: projectsJson.projects,
       introMessages: [
         'Welcome to my portfolio :)',
         'The commands available are:',
         '\u00A0\u00A0<em>cat about</em> - shows about information.',
-        '\u00A0\u00A0<em>cat contact</em> - shows <a href="#" style="color:#88AED0;font-weight:bold;">contact</a> information.',
+        '\u00A0\u00A0<em>cat contact</em> - shows contact information.',
         '\u00A0\u00A0<em>ls projects</em> - lists projects.',
         '\u00A0\u00A0<em>clear</em> - clears terminal and shows this manual.',
-        '<em><strong>Note:</strong> Work in Progress, some commands may not be implemented yet (2023/01/07)</em>'
       ]
     }
   },
@@ -38,17 +39,72 @@ export default {
         this.messages.push("> " + message);
         if (message.toLowerCase() === "clear") {
           this.$data.messages = Array.from(this.$data.introMessages);
+          window.scrollTo(0, 0);
         } else if (message.toLowerCase() == "cat about") {
-          this.messages.push("Command yet to be implemented: " + message);
+          this.getAboutMessages();
         } else if (message.toLowerCase() == "cat contact") {
-          this.messages.push("Command yet to be implemented: " + message); // maybe send an email? accept an email address as a parameter
+          this.getContactMessages(); // maybe send an email? accept an email address as a parameter
         } else if (message.toLowerCase() == "ls projects") {
-          this.messages.push("Command yet to be implemented: " + message);
+          this.getProjectMessages();
         } else {
           this.messages.push(`Command not found: ${message}`)
         }
       }
-      window.scrollTo(0, 0);
+    },
+    getAboutMessages() {
+      this.messages.push(
+        "<br>",
+        "========= ABOUT ME =========",
+        "<br>",
+        "I'm Sebas, a passionate Software Developer and Airline Pilot who loves new adventures.<br><br>",
+        "I am currently a student at Seneca College enrolled in the Computer Programming and Analysis Advanced Diploma program.<br><br>",
+        "The idea of being able to create a website for any project I might want to make feels like a superpower to me, and that is what <strong>motivates me to be constantly learning new technologies</strong>.<br><br>",
+        "The topics that I find the most intriguing in Software Development are <strong>full stack web development</strong> and <strong>cloud computing</strong>.<br><br>",
+        "Aside from programming, my passions include <strong>airplanes</strong> and <strong>cars</strong>. I have been a long-time fan of Formula 1 and the Dakar Rally.<br><br>",
+        "<strong><u>What sets me aside?<u></strong><br><br>",
+        "I am constantly learning new technologies on my free time, which allow me to improve my skills and build more projects of my own.<br><br>",
+        "I believe in <em>commitment</em> and <em>hard work</em>, and is by sticking to these principles that I am planning to grow personally and profesionally.<br><br>",
+        "============================<br><br>",
+      )
+    },
+    getContactMessages() {
+      this.messages.push(
+        "<br>",
+        "======= CONTACT INFO =======",
+        "<br>",
+        "Let's Talk!<br>",
+        "<strong>Email: </strong><a href='mailto:sebastian.rubina@icloud.com' style='font-weight: bold;color: #88AED0;'>sebastian.rubina@icloud.com</a>",
+        "<strong>Phone: </strong>+1 (437)983-751",
+        "<br>",
+        "============================<br><br>",
+      )
+    },
+    getProjectMessages() {
+      this.messages.push(
+        "<br>",
+        "========= PROJECTS =========",
+        "<br>",
+        "Showing " + this.projects.length + " main projects:",
+        "<br>"
+      )
+      for (let _project of this.projects) {
+        let stack = "";
+        for (let item of _project.stack) {
+          stack += `<li>${item}</li>`
+        }
+        this.messages.push(
+          "<strong>--- Project " + _project.id + " --------------</strong>",
+          "<br>",
+          "<strong>" + _project.name + "</strong>",
+          "<br>",
+          _project.description,
+          "<br>",
+          `Built with: <ul style="list-style-type: '- ';">${stack}</ul>`,
+          "<br>",
+          "Links: " + "<a style='font-weight:bold; color: #88AED0;' target='_blank' href='" + _project.url + "'>PREVIEW</a> " + "<a style='font-weight:bold; color: #88AED0;' target='_blank' href='" + _project.github + "'>GITHUB</a>",
+          "<br><br>"
+        )
+      }
     }
   },
   mounted: function () {

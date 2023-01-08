@@ -42,6 +42,7 @@ export default {
       terminal.scrollTop = terminal.scrollHeight;
     },
     updateMessages: function (message) {
+      this.scrollDown();
       this.$emit('update-messages', message)
     },
     focusInput: async function () {
@@ -50,7 +51,6 @@ export default {
     },
     getScreenWidth() {
       this.screenWidth = window.innerWidth;
-      console.log(this.screenWidth);
     }
   },
   mounted: function() {
