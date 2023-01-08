@@ -74,7 +74,7 @@ export default {
         "<br>",
         "Let's Talk!<br>",
         "<strong>Email: </strong><a href='mailto:sebastian.rubina@icloud.com' style='font-weight: bold;color: #88AED0;'>sebastian.rubina@icloud.com</a>",
-        "<strong>Phone: </strong>+1 (437)983-751",
+        "<strong>Phone: </strong>+1 (437)983-0751",
         "<br>",
         "============================<br><br>",
       )
