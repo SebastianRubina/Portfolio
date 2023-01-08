@@ -102,7 +102,8 @@ export default {
           `Built with: <ul style="list-style-type: '- ';">${stack}</ul>`,
           "<br>",
           "Links: " + "<a style='font-weight:bold; color: #88AED0;' target='_blank' href='" + _project.url + "'>PREVIEW</a> " + "<a style='font-weight:bold; color: #88AED0;' target='_blank' href='" + _project.github + "'>GITHUB</a>",
-          "<br><br>"
+          "<br>",
+          "============================<br><br>",
         )
       }
     }
