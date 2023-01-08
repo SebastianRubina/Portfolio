@@ -14,7 +14,7 @@
             "description": "My first adventure into full stack development.<br>Built for the learning new technologies which I will be using for an upcoming job.<br>Wanted to take a different approach than what I usually do when I am learning something, which is watching videos and tutorials. I thought it was time to move past that, built this entirely on my own and recurring to documentation when needed.<br><em>Note: pushing new items to the database has been disabled to stop the application from persisting any inappropriate messages that peoplep may add.</em>",
             "stack": ["Vue.js", "ASP.NET Core", "PostgreSQL", "Azure"],
             "url": "https://superlative-alpaca-bca84c.netlify.app/",
-            "github": ""
+            "github": "https://github.com/SebastianRubina/Todo-FullStack"
         },
         {
             "id": 3,
